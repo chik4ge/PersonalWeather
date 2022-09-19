@@ -1,22 +1,18 @@
 package com.chikage.personalweather;
 
 import com.google.inject.Inject;
-import eu.crushedpixel.sponge.packetgate.api.event.PacketEvent;
-import eu.crushedpixel.sponge.packetgate.api.listener.PacketListener;
-import eu.crushedpixel.sponge.packetgate.api.listener.PacketListenerAdapter;
 import eu.crushedpixel.sponge.packetgate.api.registry.PacketConnection;
 import eu.crushedpixel.sponge.packetgate.api.registry.PacketGate;
-import net.minecraft.network.login.server.SPacketLoginSuccess;
 import net.minecraft.network.play.server.SPacketChangeGameState;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.slf4j.Logger;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.args.GenericArguments;
 import org.spongepowered.api.command.spec.CommandSpec;
 import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.event.game.state.GameStartedServerEvent;
 import org.spongepowered.api.event.Listener;
+import org.spongepowered.api.event.game.state.GameStartedServerEvent;
+import org.spongepowered.api.plugin.Dependency;
 import org.spongepowered.api.plugin.Plugin;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.format.TextColors;
@@ -27,12 +23,14 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Plugin(
-        id = "personalweather",
+        id = "personal-weather",
         name = "PersonalWeather",
         description = "add /pweather command to set weather per player.",
+        version = "1.0",
         authors = {
                 "chikage"
-        }
+        },
+        dependencies = {@Dependency(id = "packetgate")}
 )
 public class PersonalWeather {
 
